@@ -1,0 +1,8 @@
+2025-12-30 18:19:41,490 - INFO - Initalizing recommendation Pipeline
+2025-12-30 18:19:41,491 - INFO - Use pytorch device_name: cpu
+2025-12-30 18:19:41,491 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-30 18:19:46,503 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-30 18:19:47,383 - ERROR - Failed to intialize pipeline 1 validation error for RetrievalQA
+return_source_document
+  Extra inputs are not permitted [type=extra_forbidden, input_value=True, input_type=bool]
+    For further information visit https://errors.pydantic.dev/2.12/v/extra_forbidden

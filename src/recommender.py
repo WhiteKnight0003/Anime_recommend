@@ -1,5 +1,4 @@
 from langchain_classic.chains.retrieval_qa.base import RetrievalQA
-from langchain_community.chains import R
 from langchain_groq import ChatGroq
 from src.prompt_template import get_anime_prompt
 
@@ -11,10 +10,10 @@ class AnimeRecommender:
             llm = self.llm,
             chain_type = 'stuff',
             retriever = retriever,
-            return_source_document = True,
+            return_source_documents = True,
             chain_type_kwargs = {'prompt': self.prompt}
         )
 
     def get_recommendation(self, query:str):
-        result = self.qa_chain({'query':query})
+        result = self.qa_chain.invoke({'query':query})
         return result['result']

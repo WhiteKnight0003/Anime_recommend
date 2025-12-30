@@ -1,0 +1,7 @@
+2025-12-30 18:24:56,333 - INFO - Initalizing recommendation Pipeline
+2025-12-30 18:24:56,335 - INFO - Use pytorch device_name: cpu
+2025-12-30 18:24:56,335 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-30 18:25:01,006 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-30 18:25:02,248 - INFO - Pipeline intialized sucesfully...
+2025-12-30 18:25:25,130 - INFO - Recived a query light hearted anime with school settings
+2025-12-30 18:25:25,130 - ERROR - Failed to get recommendation 'RetrievalQA' object has no attribute 'revoke'

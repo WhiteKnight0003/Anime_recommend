@@ -25,4 +25,4 @@ User's question:
 Your well-structured response:
 """
 
-    return ChatPromptTemplate(template=template, input_variables=["context", "question"])
+    return ChatPromptTemplate.from_template(template=template)

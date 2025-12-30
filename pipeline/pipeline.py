@@ -11,7 +11,7 @@ class AnimeRecommendationPipeline:
         try:
             logger.info('Initalizing recommendation Pipeline')
 
-            vector_build = VectorStoreBuilder(csv_path='',persist_dir='' )
+            vector_build = VectorStoreBuilder(csv_path='',persist_dir=persist_dir)
             retriever = vector_build.load_vector_store().as_retriever()
 
             self.recommender = AnimeRecommender(retriever=retriever, api_key=GROQ_API_KEY, model_name=model_name)

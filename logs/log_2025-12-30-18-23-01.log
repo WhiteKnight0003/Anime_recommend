@@ -1,0 +1,8 @@
+2025-12-30 18:23:01,400 - INFO - Initalizing recommendation Pipeline
+2025-12-30 18:23:01,401 - INFO - Use pytorch device_name: cpu
+2025-12-30 18:23:01,401 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-30 18:23:05,535 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-30 18:23:06,930 - INFO - Pipeline intialized sucesfully...
+2025-12-30 18:23:26,056 - INFO - Recived a query light hearted anime with school settings
+2025-12-30 18:23:27,794 - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-30 18:23:27,850 - INFO - Recommendation generated sucesfuly ....

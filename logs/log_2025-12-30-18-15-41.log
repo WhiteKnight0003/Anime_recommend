@@ -1,0 +1,5 @@
+2025-12-30 18:15:41,394 - INFO - Initalizing recommendation Pipeline
+2025-12-30 18:15:41,395 - INFO - Use pytorch device_name: cpu
+2025-12-30 18:15:41,395 - INFO - Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+2025-12-30 18:15:46,352 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-30 18:15:47,706 - ERROR - Failed to intialize pipeline langchain_core.prompts.prompt.PromptTemplate() got multiple values for keyword argument 'input_variables'
