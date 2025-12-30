@@ -24,7 +24,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 8501
 
 # Run the app - docker chỉ viết 1 lệnh để chạy ứng dụng
-CMD ["streamlit", "run", "app/app.py", "--server.port=8501", "--server.address=0.0.0.0","--server.headless=true"]
+CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0","--server.headless=true"]
 
 # --server.port=8501  - cổng mặc định giúp bạn dễ dàng cấu hình "Port Mapping" (ánh xạ cổng) từ thế giới bên ngoài vào trong container
 
