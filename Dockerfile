@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
 COPY . .
 
 ## Run setup.py - kiểu khi chạy dự án sẽ có forder __pycache__ - lệnh --no-cache-dir sẽ bỏ qua nó 
-RUN pip install --no-cache-dir -e requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Used PORTS - streamlit chạy mặc định trên cổng 8501
 EXPOSE 8501
