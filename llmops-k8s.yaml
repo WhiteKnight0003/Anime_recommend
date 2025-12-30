@@ -1,0 +1,41 @@
+apiVersion: apps/v1 # Khai báo phiên bản API của K8s. apps/v1 là chuẩn cho các tác vụ quản lý ứng dụng bền vững.
+kind: Deployment # Khai báo đây là một bản thiết kế để quản lý việc triển khai, cập nhật và tự động phục hồi ứng dụng.
+# Những phần đặt tên "Không quan trọng" (Có thể đặt tùy ý)  : là những tên mang tính chất định danh người dùng, bạn có thể đổi thành bất cứ tên gì miễn là nó không trùng với các object khác trong cùng một Namespace.
+# Những phần đặt tên "Phải theo quy tắc" (Bắt buộc đồng bộ) : Đây là những phần nếu bạn đặt sai hoặc không khớp nhau, ứng dụng sẽ không thể chạy hoặc không thể truy cập được.
+metadata: # của Deployment và Service
+  name: llmops-app # Đây chỉ là tên hiển thị khi bạn gõ lệnh kubectl get pods hoặc kubectl get svc. Nó giúp bạn phân biệt dịch vụ này với dịch vụ khác.
+  labels:
+    app: llmops
+spec:
+  replicas: 1 # số lượng bản sao
+  selector:
+    matchLabels:
+      app: llmops # Vị trí: spec.selector.app (của Service) phải khớp với spec.template.metadata.labels.app (của Deployment).
+  template:
+    metadata:
+      labels:
+        app: llmops # cái này cần theo quy tắc (Deployment sử dụng nhãn này để biết nó cần quản lý những Pod nào. Nếu không khớp, Deployment sẽ tạo Pod mới vô tận vì nó nghĩ rằng chưa có Pod nào của nó đang chạy.)
+    spec:
+      containers: # containers config
+      - name: llmops-container # Đây là tên của container chạy bên trong Pod. Một Pod có thể có nhiều container, nên tên này giúp bạn định danh khi xem log hoặc debug cụ thể một container.
+        image: llmops-app:latest  # Use local image
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 8501 # targetPort: 8501 trùng nhau và theo cái containerPort
+        envFrom: # do cả docker và git đều k chứa env nên t câuú hình ở đây
+          - secretRef:
+              name: llmops-secrets  # Tên này bắt buộc phải trùng khớp 100% với tên của đối tượng Secret mà bạn đã tạo trong K8s
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: llmops-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: llmops ###
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8501
