@@ -6,7 +6,8 @@ class AnimeDataLoader:
         self.processed_csv = processed_csv
 
     def load_and_process(self):
-        df = pd.read_csv(self.original_csv, encoding='utf-8', error_bad_lines=False).dropna()
+        # on_bad_lines = 'skip' : bỏ qua những dòng thoại không hay mà không cần nhắc nhở hay cảnh báo khi gặp phải.
+        df = pd.read_csv(self.original_csv, encoding='utf-8', on_bad_lines='skip').dropna()
         required_cols = {'Name', 'Genres', 'sypnopsis'}
         # set(df.columns) = ['Name', 'Genres', 'sypnopsis', 'mail_id']
         # kiểu như nếu tất cả các phần tử trong required_cols có trong set(df.columns) thì missing =[] - rỗng 
