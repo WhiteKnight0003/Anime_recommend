@@ -3,7 +3,8 @@ FROM python:3.12-slim
 
 ## Essential environment variables
 ENV PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONUNBUFFERED=1
+    PYTHONUNBUFFERED=1 \
+    PYTHONPATH=/app
 
 ## Work directory inside the docker container - app là nơi mà ta chạy 1 lần code duy nhất
 WORKDIR /app
